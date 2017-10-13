@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TechCrowd</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- link to the main css -->
+    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
+    <!-- jquery plugin -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- custom font plugin -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <style>
+        header {
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header>
+
+        <a href="#" id="title">TechCrowd <span id="subtitle">ACCOUNT</span></a>
+        <div id="links">
+            <a href="user-account.html">Profile</a>
+            <a href="user-account-update.html" style="color: black;background-color: skyblue;">Update</a>
+            <a href="#" id="logout">Log out</a>
+        </div>
+        <div class="account">
+            <p>John Doe</p>
+            <img src="assets/images/sample.jpg" />
+        </div>
+
+    </header>
+
+    <!-- PROFILE BOX -->
+    <div class="profile-box">
+        <center>
+            <div>
+                <img src="assets/images/profile.png" />
+                <h3>Ensure your profile is always up-to-date</h3>
+            </div>
+        </center>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="update">
+
+            <form method="post" action="#">
+
+                <br>
+                <fieldset>
+                    <legend>About yourself</legend>
+                    <br> <input type="file" name="profile_image"><br><br>
+                    <input type="text" placeholder="First name" name="fname"><br>
+                    <input type="text" placeholder="Last name" name="lname"><br>
+                </fieldset><br>
+
+                <fieldset>
+                    <legend>Yourself in institution</legend>
+                    <br><input type="text" placeholder="Institution" name="institution"><br>
+                    <input type="text" placeholder="Course" name="course"><br>
+                    <input type="text" placeholder="Year" name="year"><br>
+                    <input type="number" placeholder="Admission number" name="studentId"><br>
+                </fieldset>
+
+                <input type="submit" value="UPDATE PROFILE" name="submit"><br>
+
+            </form><br>
+
+            <form method="post" action="#">
+
+                <br><br>
+                <fieldset style="width: 95%;">
+                    <legend>Change account credential</legend>
+                    <br><input type="email" placeholder="Email" name="email"><br>
+                    <input type="password" placeholder="Password" name="password"><br>
+                    <input type="password" placeholder="Re-type password" name="re_password"><br>
+                </fieldset>
+                
+                <input type="submit" value="UPDATE ACCOUNT" name="submit"><br>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        //javascript stuff to go here
+    </script>
+
+
+</body>
+
+</html>
