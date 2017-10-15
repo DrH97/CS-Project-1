@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::get('/repairs', function () {
     return view('repairs');
@@ -23,9 +23,9 @@ Route::get('/mycart', function () {
     return view('mycart');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
 Route::get('/admin', function () {
     return view('admin.admin');
@@ -33,4 +33,4 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('/');
+Route::get('/home', 'HomeController@index');
