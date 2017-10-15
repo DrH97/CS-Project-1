@@ -1,26 +1,21 @@
 @extends('layouts.appheader')
 
-@section('content')
+@section('bluebar')
+    <form method="post" action="#">
+        <input type="search" placeholder="Hey there, What are you looking for?">
+        <select>
+          <option selected="true" disabled="disabled">Category</option>
+          <option value="Cables">Cables</option>
+          <option value="Hard drive">Hard drive</option>
+          <option value="Flash drive">Flash drive</option>
+          <option value="Memory card">Memory card</option>
+          <option value="sth else">sth else</option>
+        </select>
+        <input type="submit" value="FIND">
+    </form>
+@endsection
 
-    <!-- DESCRIPTION -->
-    <div class="description">
-        <center>
-            <div>
-                <form method="post" action="#">
-                    <input type="search" placeholder="Hey there, What are you looking for?">
-                    <select>
-                      <option selected="true" disabled="disabled">Category</option>
-                      <option value="Cables">Cables</option>
-                      <option value="Hard drive">Hard drive</option>
-                      <option value="Flash drive">Flash drive</option>
-                      <option value="Memory card">Memory card</option>
-                      <option value="sth else">sth else</option>
-                    </select>
-                    <input type="submit" value="FIND">
-                </form>
-            </div>
-        </center>
-    </div>
+@section('content')
 
     <!-- CONTENT -->
     <div class="content">

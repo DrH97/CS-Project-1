@@ -1,63 +1,21 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.appheader')
 
-<head>
+@section('bluebar')
+    <form method="post" action="#">
+        <input type="search" placeholder="Hey there, Who are you looking for?">
+        <select>
+          <option selected="true" disabled="disabled">Category</option>
+          <option value="Cables">Cables</option>
+          <option value="Hard drive">Hard drive</option>
+          <option value="Flash drive">Flash drive</option>
+          <option value="Memory card">Memory card</option>
+          <option value="sth else">sth else</option>
+        </select>
+        <input type="submit" value="FIND">
+    </form>
+@endsection
 
-    <title>TechCrowd</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    
-    <!-- Font Awesome Icon Library - for rating widget -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- link to the main css -->
-    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="{!! asset('css/main.css') !!}" />
-    <!-- jquery plugin -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- custom font plugin -->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- TOP NAVIGATION BAR -->
-    <header>
-
-        <a href="#" id="title">TechCrowd</a>
-        <div id="links">
-            <a href="/">Shop</a>
-            <a href="repairs" style="color: black;background-color: skyblue;">Repairs</a>
-            <a href="mycart">MyCart</a>
-        </div>
-        <div class="account">
-            <p>LOGIN OR SIGNUP</p>
-            <img src="assets/images/default-profile.png" />
-        </div>
-
-    </header>
-
-    <!-- DESCRIPTION -->
-    <div class="description">
-        <center>
-            <div>
-                <form method="post" action="#">
-                    <input type="search" placeholder="Hey there, Who are you looking for?">
-                    <select>
-                      <option selected="true" disabled="disabled">Category</option>
-                      <option value="Cables">Cables</option>
-                      <option value="Hard drive">Hard drive</option>
-                      <option value="Flash drive">Flash drive</option>
-                      <option value="Memory card">Memory card</option>
-                      <option value="sth else">sth else</option>
-                    </select>
-                    <input type="submit" value="FIND">
-                </form>
-            </div>
-        </center>
-    </div>
+@section('content')
 
     <!-- CONTENT -->
     <div class="content">
@@ -164,6 +122,4 @@
     </script>
 
 
-</body>
-
-</html>
+@endsection

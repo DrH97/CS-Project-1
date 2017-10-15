@@ -28,7 +28,7 @@
 
         <a href="#It'sTechCrowdYooo" id="title">TechCrowd</a>
         <div id="links">
-            <a href="index.html" style="color: black;background-color: skyblue;">Shop</a>
+            <a href="/" style="color: black;background-color: skyblue;">Shop</a>
             <a href="repairs">Repairs</a>
             <a href="mycart">MyCart</a>
         </div>
@@ -38,6 +38,17 @@
         </div>
 
     </header>
+
+    <!-- DESCRIPTION -->
+    <div class="description">
+        <center>
+            <div>
+                @section('bluebar')
+                @show
+                
+            </div>
+        </center>
+    </div>
 
     @yield('content')
 </body>
