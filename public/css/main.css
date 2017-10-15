@@ -825,7 +825,10 @@ input:checked + .slider:before {
     margin: 0;
 }
 
-
+.footer{
+    height: 20px;
+    margin-top: 4px solid blue;
+}
 
 
 

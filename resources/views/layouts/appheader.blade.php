@@ -51,5 +51,14 @@
     </div>
 
     @yield('content')
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <center>
+            <p>&copy TechTriad 2017</p>
+            <!-- <p>&copy ReTrioTec 2017</p> -->
+        </center>
+    </div>
+
 </body>
 </html>
