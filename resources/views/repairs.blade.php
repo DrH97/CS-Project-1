@@ -1,4 +1,5 @@
 @extends('layouts.appheader')
+@include('inc.navbar')
 
 @section('bluebar')
     <form method="post" action="#">

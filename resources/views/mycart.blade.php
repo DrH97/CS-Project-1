@@ -1,5 +1,5 @@
 @extends('layouts.appheader')
-
+@include('inc.navbar')
 
 @section('bluebar')
     <h3>You have no items on your cart</h3>

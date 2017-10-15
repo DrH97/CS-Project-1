@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- link to the main css -->
-    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
     <link type="text/css" rel="stylesheet" href="{!! asset('css/main.css') !!}" />
     <!-- jquery plugin -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,33 +21,6 @@
 </head>
 
 <body>
-
-    <!-- TOP NAVIGATION BAR -->
-    <header>
-
-        <a href="#It'sTechCrowdYooo" id="title">TechCrowd</a>
-        <div id="links">
-            <a href="/" style="color: black;background-color: skyblue;">Shop</a>
-            <a href="repairs">Repairs</a>
-            <a href="mycart">MyCart</a>
-        </div>
-        <div class="account">
-            <p>LOGIN OR SIGNUP</p>
-            <img src="{!! asset('images/sample.jpg') !!}" />
-        </div>
-
-    </header>
-
-    <!-- DESCRIPTION -->
-    <div class="description">
-        <center>
-            <div>
-                @section('bluebar')
-                @show
-                
-            </div>
-        </center>
-    </div>
 
     @yield('content')
 

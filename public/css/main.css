@@ -105,8 +105,9 @@ header .account{
     padding-top: 0.5em;
 }
 
-header .account:hover{
+header .account a:hover{
     background-color: paleturquoise;
+    cursor: pointer;
 }
 
 header .account div{

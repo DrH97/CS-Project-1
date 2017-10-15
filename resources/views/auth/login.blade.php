@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <title>TechCrowd</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-    <!-- link to the main css -->
-    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
-    <!-- jquery plugin -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- custom font plugin -->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+@extends('layouts.appheader')
 
     <style>
         
@@ -66,17 +51,22 @@
             background-color: dodgerblue;
             border-style: none;
         }
+
+        form a{
+            color: dodgerblue;
+            font-size: 13px;
+            text-decoration: none;
+            position: relative;
+            top: 10;
+        }
     </style>
 
-</head>
-
-<body>
-
+@section('content')
     <!-- TOP NAVIGATION BAR -->
     <header>
 
         <center>
-            <a href="#It'sTechCrowdYooo" id="title">TechCrowd<span id="subtitle"> WELCOME</span></a>
+            <a href="/" id="title">TechCrowd<span id="subtitle"> WELCOME</span></a>
         </center>
 
     </header>
@@ -96,11 +86,17 @@
         <div id="login" class="tabcontent">
 
             <center>
-            <form method="post" action="#">
+            <form method="POST" action="{{ route('login') }}">
+                {{ csrf_field() }}
 
-                <input type="email" placeholder="Email" name="email-login" required><br>
-                <input type="password" placeholder="Password" name="password-login" required><br><br>
+                <input id="email" type="email" placeholder="Email" name="email-login" value="{{ old('email') }}" required autofocus><br>
+
+                <input id="password" type="password" placeholder="Password" name="password-login" required><br><br>
                 <input type="submit" value="LOG IN"><br>
+
+                <a href="{{ route('password.request') }}">
+                    Forgot Your Password?
+                </a>
 
             </form>
             </center>
@@ -111,21 +107,30 @@
         <div id="signup" class="tabcontent">
 
             <center>
-            <form method="post" action="#">
+            <form method="POST" action="{{ route('register') }}">
+                {{ csrf_field() }}
 
                 <div display="inline-flex">
-                    <input type="text" placeholder="First Name" name="fname" required>
-                    <input type="text" placeholder="Last Name" name="lname" required>
+                    <input id="fname" type="text" placeholder="First Name" name="fname" value="{{ old('fname') }}" required autofocus>
+
+                    <input type="text" placeholder="Last Name" name="lname" value="{{ old('lname') }}" required autofocus>
                 </div><br>
+
                 <div display="inline-flex">
                     <label style="margin-right: 2em;">Gender:  </label>
-                    <input id="male" type="radio" name="gender"><label for="male" style="margin-right: 2em;">Male</label>
-                    <input id="female" type="radio" name="gender"><label for="female">Female</label>
+
+                    <input id="male" type="radio" name="gender" value="{{ old('gender') }}" required><label for="male" style="margin-right: 2em;">Male</label>
+
+                    <input id="female" type="radio" name="gender" value="{{ old('gender') }}" required><label for="female">Female</label>
                 </div><br>
-                <input type="number" placeholder="Mobile Number" name="mobile" required><br>
-                <input type="email" placeholder="Email" name="email" required><br>
-                <input type="password" placeholder="Password" name="password" required><br>
-                <input type="password" placeholder="Re-type Password" name="re-password-login" required><br><br>
+
+                <input id="number" type="number" placeholder="Mobile Number" name="number" value="{{ old('number') }}" required><br>
+
+                <input id="email" type="email" placeholder="Email" name="email" required><br>
+
+                <input id="password" type="password" placeholder="Password" name="password" required><br>
+
+                <input id="password-confirm" type="password" placeholder="Re-type Password" name="password-confirm" required><br><br>
                 <input type="submit" value="SIGN UP"><br>
 
             </form>
@@ -163,7 +168,4 @@
         document.getElementById("defaultOpen").click();
     </script>
 
-
-</body>
-
-</html>
+@endsection
