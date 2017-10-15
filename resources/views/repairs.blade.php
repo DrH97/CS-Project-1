@@ -13,6 +13,7 @@
 
     <!-- link to the main css -->
     <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="{!! asset('css/main.css') !!}" />
     <!-- jquery plugin -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- custom font plugin -->
@@ -27,9 +28,9 @@
 
         <a href="#" id="title">TechCrowd</a>
         <div id="links">
-            <a href="index.html">Shop</a>
-            <a href="repairs.html" style="color: black;background-color: skyblue;">Repairs</a>
-            <a href="mycart.html">MyCart</a>
+            <a href="/">Shop</a>
+            <a href="repairs" style="color: black;background-color: skyblue;">Repairs</a>
+            <a href="mycart">MyCart</a>
         </div>
         <div class="account">
             <p>LOGIN OR SIGNUP</p>
