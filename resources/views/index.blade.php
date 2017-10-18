@@ -26,7 +26,7 @@
         <center>
             <div class="h-card">
                 <div class="image">
-                    <img src="assets/images/sample.jpg" />
+                    <img src="{!! asset('images/sample.jpg') !!}" />
                 </div>
                 <div class="more">
                     <h3>Name of hardware item</h3>

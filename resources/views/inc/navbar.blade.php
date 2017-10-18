@@ -3,31 +3,31 @@
 
         <a href="#It'sTechCrowdYooo" id="title">TechCrowd</a>
         <div id="links">
-            <a class="tablinks" href="/" onclick="openTabs(event, 'dashboard')"  id="defaultOpen">Shop</a>
-            <a class="tablinks" href="repairs" onclick="openTabs(event, 'dashboard')">Repairs</a>
-            <a class="tablinks" href="mycart" onclick="openTabs(event, 'dashboard')">MyCart</a>
+            <a class="tablinks" href="/" onclick="openTabsnav(event, 'shop')"  id="defaultOpen">Shop</a>
+            <a class="tablinks" href="repairs" onclick="openTabsnav(event, 'repairs')">Repairs</a>
+            <a class="tablinks" href="mycart" onclick="openTabsnav(event, 'mycart')">MyCart</a>
         </div>
         <div class="account">
             <a href="/login" style="text-decoration: none;"><p>LOGIN</p></a>
-            <img src="{!! asset('sample.jpg') !!}" />
+            <img src="{!! asset('images/defaultprofile.png') !!}" />
             
         </div>
 
     </header>
 
     <!-- DESCRIPTION -->
-    <div class="description">
+    {{-- <div class="description">
         <center>
             <div>
-                @section('bluebar')
+                @yield('bluebar')
                 @show
                 
             </div>
         </center>
-    </div>
+    </div> --}}
 
 <script>
-        function openTabs(evt, tabName) {
+        function openTabsnav(evt, tabName) {
             // Declare all variables
             var i, tabcontent, tablinks;
 

@@ -28,7 +28,7 @@
         </div>
         <div class="account">
             <p>John Doe</p>
-            <img src="assets/images/default-profile.png" />
+            <img src="{!! asset('images/defaultprofile.png') !!}" />
         </div>
 
     </header>
@@ -37,7 +37,7 @@
     <div class="profile-box">
         <center>
             <div>
-                <img src="assets/images/default-profile.png" />
+                <img src="{!! asset('images/defaultprofile.png') !!}" />
                 <h3>John Doe</h3>
             </div>
         </center>
@@ -83,7 +83,7 @@
 
             <center>
                 <div>
-                    <img src="assets/images/default-profile.png" />
+                    <img src="{{ asset('images/defaultprofile.png') }}" />
                     <p>John a guy with long-ass name</p>
                     <button id="view">View Profile</button>
                     <button id="accept">Accept</button>
