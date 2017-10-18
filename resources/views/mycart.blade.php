@@ -10,14 +10,14 @@
 @section('content')
 
     <!-- DESCRIPTION -->
-    <!-- <div class="description">
+    <div class="description">
         <center>
             <div>
                 <h3>You have no items on your cart</h3>
-                <a href="index.html"><button>GET STARTED</button></a>
+                <a href="/"><button>GET STARTED</button></a>
             </div>
         </center>
-    </div> -->
+    </div>
 
     <!-- CONTENT -->
     <div class="content">

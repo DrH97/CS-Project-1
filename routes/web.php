@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/profile', function () {
+    return view('useraccount');
+});
+
 Route::get('/repairs', function () {
     return view('repairs');
 });
@@ -23,13 +27,10 @@ Route::get('/mycart', function () {
     return view('mycart');
 });
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
 Route::get('/admin', function () {
     return view('admin.admin');
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

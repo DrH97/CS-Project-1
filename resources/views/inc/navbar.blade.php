@@ -8,7 +8,12 @@
             <a class="tablinks" href="mycart" onclick="openTabsnav(event, 'mycart')">MyCart</a>
         </div>
         <div class="account">
-            <a href="/login" style="text-decoration: none;"><p>LOGIN</p></a>
+            <!-- Authentication Links -->
+            @guest
+                <a href="{{ route('login') }}" style="text-decoration: none;"><p>LOGIN</p></a>
+            @else
+                Welcome: <a href="{{ route('profile') }}" style="text-decoration: none;"><p>{{ Auth::user()->name }}</p></a>
+            @endguest
             <img src="{!! asset('images/defaultprofile.png') !!}" />
             
         </div>

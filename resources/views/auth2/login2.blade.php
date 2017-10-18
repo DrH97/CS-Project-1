@@ -91,9 +91,11 @@
             <form method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
-                <input id="email" type="email" placeholder="Email" name="email-log" value="{{ old('email') }}" required autofocus><br>
+                <input id="email" type="email" placeholder="Email" name="email" value="{{ old('email') }}" required autofocus><br>
 
-                <input id="password" type="password" placeholder="Password" name="password-log" required><br><br>
+                <input id="password" type="password" placeholder="Password" name="password" required><br><br>
+                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                
                 <input type="submit" value="LOG IN"><br>
 
                 <a href="{{ route('password.request') }}">
