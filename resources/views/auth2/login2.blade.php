@@ -95,7 +95,7 @@
 
                 <input id="password" type="password" placeholder="Password" name="password" required><br><br>
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                
+
                 <input type="submit" value="LOG IN"><br>
 
                 <a href="{{ route('password.request') }}">
@@ -119,9 +119,9 @@
                 {{ csrf_field() }}
 
                 <div display="inline-flex">
-                    <input id="fname" type="text" placeholder="First Name" name="fname" required autofocus>
+                    <input id="firstname" type="text" placeholder="First Name" name="firstname" required autofocus>
 
-                    <input type="text" placeholder="Last Name" name="lname" required autofocus>
+                    <input id="lastname" type="text" placeholder="Last Name" name="lastname" required autofocus>
                 </div><br>
 
                 <div display="inline-flex">
@@ -132,13 +132,13 @@
                     <input id="female" type="radio" name="gender" value="female" required><label for="female">Female</label>
                 </div><br>
 
-                <input id="number" type="number" placeholder="Mobile Number" name="number" required><br>
+                <input id="mobile" type="number" placeholder="Mobile Number" name="mobile" required><br>
 
-                <input id="email" type="email" placeholder="Email" name="email-sign" required><br>
+                <input id="email" type="email" placeholder="Email" name="email" required><br>
 
-                <input id="password" type="password" placeholder="Password" name="password-sign" required><br>
+                <input id="password" type="password" placeholder="Password" name="password" required><br>
 
-                <input id="password-confirm" type="password" placeholder="Re-type Password" name="password-confirm-sign" required><br><br>
+                <input id="password-confirm" type="password" placeholder="Re-type Password" name="password-confirmation" required><br><br>
                 <input type="submit" value="SIGN UP"><br>
 
             </form>

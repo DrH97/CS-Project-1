@@ -12,9 +12,17 @@
             @guest
                 <a href="{{ route('login') }}" style="text-decoration: none;"><p>LOGIN</p></a>
             @else
-                Welcome: <a href="{{ route('profile') }}" style="text-decoration: none;"><p>{{ Auth::user()->name }}</p></a>
+                <a href="profile/?user={!! Auth::user()->remember_token !!}" style="text-decoration: none; display: inline-flex;"{{--  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit(); " --}}>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                    </form><p>{{ Auth::user()->email }}</p>
+                
+                    <img src="{!! asset('images/defaultprofile.png') !!}" />
+                </a>                                   
+                    
+            
             @endguest
-            <img src="{!! asset('images/defaultprofile.png') !!}" />
             
         </div>
 

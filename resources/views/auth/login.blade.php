@@ -1,78 +1,8 @@
-@extends('layouts.app')
 @extends('layouts.appheader')
-
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- @endsection --}}
-
 
 <style>
         
-        html, body{
+        .body{
             background-color: skyblue;
         }
         
@@ -103,7 +33,7 @@
             cursor: pointer;
             padding: 14px 16px;
             transition: 0.3s;
-            color: white;
+            color: black;
             margin: 0 1em;
             border: 1px solid white;
         }
@@ -131,7 +61,7 @@
         }
     </style>
 
-{{-- @section('content') --}}
+@section('content')
     <!-- TOP NAVIGATION BAR -->
     <header>
 
@@ -141,6 +71,7 @@
 
     </header>
 
+<div class="body">
     <!-- CONTENT -->
     <div class="content">
 
@@ -149,21 +80,35 @@
         <!-- TABS -->
         <div class="tab">
             <button class="tablinks" onclick="openTabs(event, 'login')" id="defaultOpen">LOGIN</button>
-            <button class="tablinks" onclick="openTabs(event, 'signup')"><b>CREATE NEW ACCOUNT</b></button>
+            <button class="tablinks" onclick="openTabs(event, 'signup')">CREATE NEW ACCOUNT</button>
         </div>
 
         <!-- LOGIN -->
         <div id="login" class="tabcontent">
 
             <center>
-                {{ $errors->first('email-log') }}
-                {{ $errors->first('password-log') }}
+                {{ $errors->first('email') }}
+                {{ $errors->first('password') }}
             <form method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
-                <input id="email" type="email" placeholder="Email" name="email" value="{{ old('email') }}" required autofocus><br>
+                <input id="email" type="email" placeholder="Email" name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                    <br><span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                    <br>
+                @endif
+                <br>
 
                 <input id="password" type="password" placeholder="Password" name="password" required><br><br>
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+
+
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                 
                 <input type="submit" value="LOG IN"><br>
@@ -186,30 +131,61 @@
                 {{ $errors->first('password-sign') }}
                 {{-- {{ $errors->first('lname') }}
                 {{ $errors->first('number') }} --}}
-            <form method="POST" action="{{ route('register') }}">
+            <form method="post" action="{{ route('register') }}">
                 {{ csrf_field() }}
 
                 <div display="inline-flex">
-                    <input id="fname" type="text" placeholder="First Name" name="fname" required autofocus>
+                    <input id="firstname" type="text" placeholder="First Name" name="firstname" required autofocus>
+                    @if ($errors->has('firstname'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('firstname') }}</strong>
+                        </span>
+                    @endif
 
-                    <input type="text" placeholder="Last Name" name="lname" required autofocus>
+                    <input id="lastname" type="text" placeholder="Last Name" name="lastname" required autofocus>
+                    @if ($errors->has('lastname'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('lastname') }}</strong>
+                        </span>
+                    @endif
                 </div><br>
+                
 
                 <div display="inline-flex">
                     <label style="margin-right: 2em;">Gender:  </label>
 
                     <input id="male" type="radio" name="gender" value="male" required><label for="male" style="margin-right: 2em;">Male</label>
-
+                    
                     <input id="female" type="radio" name="gender" value="female" required><label for="female">Female</label>
+                    @if ($errors->has('gender'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('gender') }}</strong>
+                        </span>
+                    @endif
                 </div><br>
 
-                <input id="number" type="number" placeholder="Mobile Number" name="number" required><br>
+                <input id="mobile" type="number" placeholder="Mobile Number" name="mobile" required><br>
+                @if ($errors->has('number'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('number') }}</strong>
+                    </span>
+                @endif
 
-                <input id="email" type="email" placeholder="Email" name="email-sign" required><br>
+                <input id="email-sign" type="email" placeholder="Email" name="email-sign" required><br>
+                @if ($errors->has('email-sign'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email-sign') }}</strong>
+                    </span>
+                @endif
 
-                <input id="password" type="password" placeholder="Password" name="password-sign" required><br>
+                <input id="password-sign" type="password" placeholder="Password" name="password-sign" required><br>
+                @if ($errors->has('password-sign'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password-sign') }}</strong>
+                    </span>
+                @endif
 
-                <input id="password-confirm" type="password" placeholder="Re-type Password" name="password-confirm-sign" required><br><br>
+                <input id="password-confirm" type="password" placeholder="Re-type Password" name="password_confirmation" required><br><br>
                 <input type="submit" value="SIGN UP"><br>
 
             </form>
@@ -246,5 +222,7 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+
+</div>
 
 @endsection

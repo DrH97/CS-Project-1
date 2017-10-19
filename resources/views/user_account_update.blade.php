@@ -1,43 +1,21 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.appheader')
+{{-- @include('inc.navbar') --}}
 
-<head>
-
-    <title>TechCrowd</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-    <!-- link to the main css -->
-    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
-    <!-- jquery plugin -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- custom font plugin -->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-
-    <style>
-        header {
-            background: rgba(255, 255, 255, 0.8);
-        }
-    </style>
-
-</head>
-
-<body>
+@section('content')
 
     <!-- TOP NAVIGATION BAR -->
     <header>
 
         <a href="#" id="title">TechCrowd <span id="subtitle">ACCOUNT</span></a>
         <div id="links">
-            <a href="user-account.html">Profile</a>
-            <a href="user-account-update.html" style="color: black;background-color: skyblue;">Update</a>
+            <a href="../profile">Profile</a>
+            <a href="profile/update" style="color: black;background-color: skyblue;">Update</a>
             <a href="#" id="logout">Log out</a>
         </div>
-        <div class="account">
+        {{-- <div class="account">
             <p>John Doe</p>
             <img src="assets/images/sample.jpg" />
-        </div>
+        </div> --}}
 
     </header>
 
@@ -45,7 +23,7 @@
     <div class="profile-box">
         <center>
             <div>
-                <img src="assets/images/profile.png" />
+                <img src="{!! asset('images/sample.jpg') !!}" />
                 <h3>Ensure your profile is always up-to-date</h3>
             </div>
         </center>
@@ -61,9 +39,9 @@
                 <br>
                 <fieldset>
                     <legend>About yourself</legend>
-                    <br> <input type="file" name="profile_image"><br><br>
-                    <input type="text" placeholder="First name" name="fname"><br>
-                    <input type="text" placeholder="Last name" name="lname"><br>
+                    <br> <input type="file" name="profile_image" ><br><br>
+                    <input type="text" placeholder="First name" name="fname" value="{!! Auth::user()->firstname !!}"><br>
+                    <input type="text" placeholder="Last name" name="lname" value="{!! Auth::user()->lastname !!}"><br>
                 </fieldset><br>
 
                 <fieldset>
@@ -83,7 +61,7 @@
                 <br><br>
                 <fieldset style="width: 95%;">
                     <legend>Change account credential</legend>
-                    <br><input type="email" placeholder="Email" name="email"><br>
+                    <br><input type="email" placeholder="Email" name="email" value="{!! Auth::user()->email !!}"><br>
                     <input type="password" placeholder="Password" name="password"><br>
                     <input type="password" placeholder="Re-type password" name="re_password"><br>
                 </fieldset>
@@ -102,6 +80,4 @@
     </script>
 
 
-</body>
-
-</html>
+@endsection

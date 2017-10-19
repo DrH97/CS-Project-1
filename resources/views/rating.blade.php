@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.appheader')
+@extends('inc.navbar')
 
-<head>
-
-    <title>TechCrowd</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-    <!-- link to the main css -->
-    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
-    <!-- jquery plugin -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- custom font plugin -->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- TOP NAVIGATION BAR -->
+@section('content')
+   {{--  <!-- TOP NAVIGATION BAR -->
     <header>
 
         <a href="#" id="title">TechCrowd<span id="subtitle"> RATING</span></a>
@@ -28,14 +11,14 @@
             <img src="assets/images/default-profile.png" />
         </div>
 
-    </header>
+    </header> --}}
 
     <!-- CONTENT -->
     <div id="rating" class="content">
         
         <h3>Rate our sellers to help us improve our service to you.</h3>
 
-        <form method="post" action="#">
+        <form {{-- method="post" --}} action="{{-- route('index') --}}">
             <table>
                 <tr>
                     <th>#</th>
@@ -68,6 +51,4 @@
     </div>
 
 
-</body>
-
-</html>
+@endsection

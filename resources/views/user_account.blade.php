@@ -1,6 +1,7 @@
 @extends('layouts.appheader')
-@include('inc.navbar')
+{{-- @include('inc.navbar') --}}
 
+@section('content')
     <style>
         
         header {
@@ -8,21 +9,20 @@
         }
         
     </style>
-@section('content')
 
     <!-- TOP NAVIGATION BAR -->
     <header>
 
         <a href="#" id="title">TechCrowd <span id="subtitle">ACCOUNT</span></a>
         <div id="links">
-            <a href="index.html" style="color: black;background-color: skyblue;">Profile</a>
-            <a href="user-account-update.html">Update</a>
+            <a href="/" style="color: black;background-color: skyblue;">Profile</a>
+            <a href="profile/update">Update</a>
             <a href="#" id="logout">Log out</a>
         </div>
-        <div class="account">
-            <p>John Doe</p>
+        {{-- <div class="account">
+            <p>{{ Auth::user()->email }}</p>
             <img src="assets/images/sample.jpg" />
-        </div>
+        </div> --}}
 
     </header>
 
@@ -30,8 +30,12 @@
     <div class="profile-box">
         <center>
             <div>
-                <img src="assets/images/sample.jpg" />
-                <h3>John Doe</h3>
+                <img src="{!! asset('images/sample.jpg') !!}" />
+                @guest
+                    {{ route('login') }}
+                @else
+                    <h3>{{ Auth::user()->firstname . " " . Auth::user()->lastname}}</h3>
+                @endguest
             </div>
         </center>
     </div>
@@ -96,12 +100,15 @@
         <div id="store" class="tabcontent">
 
             <div class="upload">
-                <form method="post" action="#">
+                <form method="post" action="/addProduct">
+                    {{ csrf_field() }}
                     <h4>Upload to sell hardware</h4>
-                    <input type="file" name="item" required><br><br>
-                    <input type="text" placeholder="Hardware name" name="name" required><br><br>
+                    <input type="number" name="sellerid" hidden value="{!! Auth::user()->id !!}">
+                    <input type="file" name="image" required><br><br>
+                    <input type="text" placeholder="Hardware name" name="productname" required><br><br>
                     <textarea rows="10" cols="52" placeholder="Enter hardware description as list" name="description" required></textarea><br><br>
                     <input type="number" placeholder="Price in KES" name="price" required><br>
+                    <input type="number" placeholder="Quantity" name="quantity" required><br>
                     <input type="submit" value="UPLOAD" name="submit">
                 </form>
             </div>

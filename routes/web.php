@@ -16,7 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/profile', function () {
-    return view('useraccount');
+    return view('user_account');
+});
+
+Route::get('/profile/update', function () {
+    return view('user_account_update');
+})->middleware('auth');
+
+Route::get('/rating', function () {
+    return view('rating');
 });
 
 Route::get('/repairs', function () {
@@ -33,4 +41,4 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('addProduct', 'HardwareProductsController@st')->middleware('auth');;
